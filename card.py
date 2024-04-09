@@ -1,4 +1,5 @@
 import flet as ft
+import pygame
 
 class Card(ft.GestureDetector):
     def __init__(self, solitaire, suite, rank):
@@ -23,7 +24,10 @@ class Card(ft.GestureDetector):
             #content=ft.Image(src=f"/images/card_back.svg"),
             content=ft.Image(src=self.solitaire.settings.card_back)
         )
-
+        #sounds
+        pygame.mixer.init()
+        self.sound_fail  = pygame.mixer.Sound('./assets/sounds/fail.mp3')
+        self.sound_win  = pygame.mixer.Sound('./assets/sounds/success.mp3')
     def turn_face_up(self):
         self.face_up = True
         self.content.content.src=f"/images/{self.rank.name}_{self.suite.name}.svg"
@@ -96,11 +100,13 @@ class Card(ft.GestureDetector):
                             old_slot.get_top_card().turn_face_up()
                         elif old_slot.type == 'waste':
                             self.solitaire.display_waste()
+                        
                         self.solitaire.update()
 
                         return
 
             # return card to original position
+            self.sound_fail.play()
             self.solitaire.bounce_back(cards_to_drag)
             self.solitaire.update()
 
@@ -133,7 +139,7 @@ class Card(ft.GestureDetector):
                 #self.move_on_top(self.solitaire.controls, [top_card])
                 #self.solitaire.move_on_top([top_card])
                 top_card.place(self.solitaire.waste)
-                top_card.turn_face_up()
+                top_card.turn_face_up() #este não está a funcionar!
             self.solitaire.display_waste()
             self.solitaire.update()
 
@@ -159,6 +165,7 @@ class Card(ft.GestureDetector):
         slot.pile.append(self)
         self.solitaire.move_on_top([self])
         if self.solitaire.check_if_you_won():
+            self.sound_win.play()
             self.solitaire.on_win()
         self.solitaire.update()
 

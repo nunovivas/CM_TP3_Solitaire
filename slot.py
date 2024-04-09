@@ -34,6 +34,7 @@ class Slot(ft.Container):
         return self.top
 
     def click(self, e):
-        if self.type == "stock" and self.solitaire.deck_passes_remaining > 1:
+        # Antigo codigo esta mal. tem que ser maior que zero e não 1
+        if self.type == "stock" and self.solitaire.deck_passes_remaining > 0:
             self.solitaire.deck_passes_remaining -= 1
             self.solitaire.restart_stock()

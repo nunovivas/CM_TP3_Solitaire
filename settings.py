@@ -20,7 +20,7 @@ class SettingsDialog(ft.AlertDialog):
                 ]))
         self.deck_passes_allowed = ft.RadioGroup(value=self.settings.deck_passes_allowed, content=ft.Row(controls=[
             ft.Radio(value=3, label="Three"),
-            ft.Radio(value=1000, label="Unlimited"),
+            ft.Radio(value=1000, label="ONE THOUSAND!"),
         ]))
         self.generate_card_backs()
 

@@ -30,7 +30,10 @@ class Solitaire(ft.Stack):
         self.deck_passes_remaining = int(self.settings.deck_passes_allowed)
         self.controls = []
         self.on_win = on_win
-
+        #here is where i will store the deck
+        self.deck = []
+        # must store all the slots and the cards within
+                
     def did_mount(self):
         self.create_slots()
         self.create_card_deck()

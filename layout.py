@@ -1,6 +1,6 @@
 import flet as ft
 from settings import SettingsDialog
-def create_appbar(page, settings, on_new_game):
+def create_appbar(page, settings, on_new_game, on_save_state, on_remaining_moves):
 
     def new_game_clicked(e):
         on_new_game(settings)
@@ -14,15 +14,25 @@ def create_appbar(page, settings, on_new_game):
         page.dialog = SettingsDialog(settings, on_new_game)
         page.dialog.open = True
         page.update()
-
+        
+    def undo_move(e):
+        print ("Undo move")
+    def save_state(e):
+        on_save_state()
+        print ("Save state")
+    def remaining_moves(e):
+        on_remaining_moves()
     page.appbar = ft.AppBar(
         leading=ft.Image(src=f"/images/card.png"),
         leading_width=30,
         title=ft.Text("Flet solitaire"),
         bgcolor=ft.colors.SURFACE_VARIANT,
         actions=[
+            ft.TextButton(text="Moves Left", on_click=remaining_moves),
             ft.TextButton(text="New game", on_click=new_game_clicked),
             ft.TextButton(text="Rules", on_click=show_rules),
+            ft.TextButton(text="Undo", on_click=undo_move),
+            ft.TextButton(text="Save", on_click=save_state),
             ft.IconButton(ft.icons.SETTINGS, on_click=show_settings),
             
         ],
