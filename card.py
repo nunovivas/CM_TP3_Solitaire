@@ -129,17 +129,23 @@ class Card(ft.GestureDetector):
     def click(self, e):
         if self.slot.type == "stock":
             # first, set the current top 3 cards to invisible
+            # WHY?? 
             for card in self.solitaire.waste.get_top_three_cards():
                 card.visible = False
 
             for i in range(
                 min(self.solitaire.settings.waste_size, len(self.solitaire.stock.pile))
             ):
-                top_card = self.solitaire.stock.pile[-1]
+                top_card = self.solitaire.stock.pile[-1] # não está a colocar a carta no waste
                 #self.move_on_top(self.solitaire.controls, [top_card])
                 #self.solitaire.move_on_top([top_card])
+                #self.move_on_top() # new line para corrigir bug?
                 top_card.place(self.solitaire.waste)
                 top_card.turn_face_up() #este não está a funcionar!
+                top_card.visible=True
+
+
+                #self.turn_face_up() #este não está a funcionar!
             self.solitaire.display_waste()
             self.solitaire.update()
 

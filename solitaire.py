@@ -168,6 +168,7 @@ class Solitaire(ft.Stack):
             card = self.waste.pile[0]
             card.turn_face_down()
             card.place(self.stock)
+        
         self.update()
 
     def check_foundation_rules(self, current_card, top_card=None):

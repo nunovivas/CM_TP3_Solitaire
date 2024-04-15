@@ -1,4 +1,3 @@
-import logging
 
 import flet as ft
 from layout import create_appbar
