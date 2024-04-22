@@ -144,8 +144,6 @@ class Card(ft.GestureDetector):
                 top_card.turn_face_up() #este não está a funcionar!
                 top_card.visible=True
 
-
-                #self.turn_face_up() #este não está a funcionar!
             self.solitaire.display_waste()
             self.solitaire.update()
 

@@ -13,14 +13,16 @@ DONE
 ### Objectivo 3 - Duas funcionalidades à sua escolha (30%)
 
 
-- DONE - Sound effects on success drop and fail -> A ideia por detrás desta funcionalidade é a de dar uma pequena ajuda ao utilizador, de forma sonora, em relação à efetividade do movimento executado no tapete.
-- DONE - DECK PASSES REMAINING - Mostrar ao jogador quantas viragens de baralho ainda faltam até deixar de ser possivel virar o baralho.
-- timer ?
-- hint ?
-- Number of cards in pile ?
+- DONE - Sound effects on success drop and fail -> A ideia por detrás desta funcionalidade é a de dar uma pequena ajuda ao utilizador, de forma sonora, em relação à efetividade do movimento executado no tapete. Implementou-se dentro da classe card e usou-se o PyGame como library.
+- DONE - DECK PASSES REMAINING - Mostrar ao jogador quantas viragens de baralho ainda faltam até deixar de ser possivel virar o baralho. A implementação desta feature inicialmente estava virada para ajudar o jogador. Acabou também por ajudar o programador no seu percurso de debugging da aplicação
+
+Estas são outras ideias para implementação
+- timer -> Mostrar tempo total de jogo.
+- hint -> Mostrar proxima jogada possivel. Bastante complexo
+- Number of cards in pile -> Mostrar o numero de cardas numa pilha. Ajuda ao jogador.
 
 ### Objectivo 4 - Deploy e teste (15%)
 
 - DONE - mudar o favicon
 - DONE - mudar a animação de carregamento
-- deploy
+- DONE - deployed to 
