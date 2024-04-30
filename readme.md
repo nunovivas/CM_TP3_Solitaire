@@ -25,4 +25,4 @@ Estas são outras ideias para implementação
 
 - DONE - mudar o favicon
 - DONE - mudar a animação de carregamento
-- DONE - deployed to 
+- DONE - deployed to https://04fbc44b-e2c8-4132-97ee-1f752ba4cf95-00-2km7o3cstxqx7.kirk.replit.dev
